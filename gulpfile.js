@@ -33,7 +33,7 @@ gulp.task('js', () => {
         'src/helpers.js',
         'src/engine.js',
         'src/game.js',
-        'src/circle.js',
+        'src/figures/*.js',
         'src/app.js',
     ];
 
