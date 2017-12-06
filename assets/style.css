@@ -13,3 +13,18 @@
     width: 100%;
     height: 100%;
 }
+
+.speed, .gravity {
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: inline-block;
+}
+i {
+    text-align: center;
+    width: 30px;
+    padding: 5px;
+}
+i:hover {
+    background-color: #aaa;
+    cursor: pointer;
+}
