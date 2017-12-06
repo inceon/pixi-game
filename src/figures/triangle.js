@@ -1,5 +1,6 @@
-class Triangle {
+class Triangle extends Figure{
     constructor(x, y, fill = 0x990099) {
+        super();
         this.a = {
             x: x - 40,
             y: y - 40
@@ -11,7 +12,17 @@ class Triangle {
         this.c = {
             x: x + 40,
             y: y - 40
-        }
+        };
+
+        this.drawFigure(x, y, fill);
+        this.model.interactive = true;
+        this.model.buttonMode = true;
+        this.model.on('pointerdown', this.click.bind(this));
+
+        this.ticker.start();
+    }
+
+    drawFigure(x, y, fill) {
         this.model = new PIXI.Graphics();
         this.model.beginFill(fill, 1);
 
@@ -21,29 +32,6 @@ class Triangle {
         this.model.lineTo(this.a.x, this.a.y);
 
         this.model.endFill();
-        this.model.interactive = true;
-        this.model.buttonMode = true;
-        this.model.on('pointerdown', this.click.bind(this));
-
-        this.gravity = 0;
-        this.ticker = new PIXI.ticker.Ticker();
-
-        this.ticker.add(this.applyGravity.bind(this));
-        this.ticker.start();
-    }
-
-    applyGravity() {
-        if (this.ticker.started) {
-            this.model.position.y += this.gravity;
-            if (this.model.position.y > Engine.game.screen.height) {
-                this.ticker.destroy();
-            }
-        }
-    }
-
-    click(event) {
-        this.ticker.destroy();
-        this.model.destroy();
     }
 
     get area() {

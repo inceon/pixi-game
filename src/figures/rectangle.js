@@ -1,7 +1,8 @@
-class Circle extends Figure{
+class Rectangle extends Figure {
     constructor(x, y, fill = 0x990099) {
         super();
-        this.radius = getRandomInt(30, 60);
+        this.width = getRandomInt(50, 80);
+        this.height = getRandomInt(50, 80);
 
         this.drawFigure(x, y, fill);
         this.model.interactive = true;
@@ -13,13 +14,14 @@ class Circle extends Figure{
 
     drawFigure(x, y, fill){
         this.model = new PIXI.Graphics();
+
         this.model.beginFill(fill, 1);
-        this.model.drawCircle(x, y, this.radius);
+        this.model.drawRect(x - 25, y - 25, this.width, this.height);
         this.model.endFill();
     }
 
     get area() {
-        return Math.PI  * Math.pow(this.radius, 2);
+        return this.width * this.height;
     }
 
 }
