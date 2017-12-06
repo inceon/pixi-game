@@ -1,8 +1,9 @@
 class Circle {
-    constructor(x, y, radius = 60, fill = 0x990099) {
+    constructor(x, y, fill = 0x990099) {
+        this.radius = getRandomInt(30, 60);
         this.model = new PIXI.Graphics();
         this.model.beginFill(fill, 1);
-        this.model.drawCircle(x, y, radius);
+        this.model.drawCircle(x, y, this.radius);
         this.model.endFill();
         this.model.interactive = true;
         this.model.buttonMode = true;
@@ -27,6 +28,10 @@ class Circle {
     click(event) {
         this.ticker.destroy();
         this.model.destroy();
+    }
+
+    get area() {
+        return Math.PI  * Math.pow(this.radius, 2);
     }
 
 }
