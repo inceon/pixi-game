@@ -31,6 +31,7 @@ gulp.task('html', () => {
 gulp.task('js', () => {
     const src = [
         'src/engine.js',
+        'src/circle.js',
         'src/app.js',
     ];
 
