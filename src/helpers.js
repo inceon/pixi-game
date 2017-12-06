@@ -7,3 +7,7 @@ function getRandomInt(min, max) {
 function getRandomColor() {
     return getRandomInt(1, 16777215);
 }
+
+function choice(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
