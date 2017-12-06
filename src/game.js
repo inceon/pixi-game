@@ -3,17 +3,19 @@ class Game extends PIXI.Application {
     constructor(width, height, config) {
         super(width, height, config);
 
-        this.figureClasses = [Triangle];
+        this.figureClasses = [Rectangle, Triangle, Circle];
 
-        let rect = new PIXI.Graphics();
-        rect.beginFill(config.backgroundColor, 1);
-        rect.drawRect(0, 0, this.screen.width, this.screen.height);
-
+        let area = this.drawGameArea(config);
         this.stage.interactive = true;
         this.stage.click = this.newRandomFigure.bind(this);
+        this.stage.addChild(area);
+    }
 
-        this.stage.addChild(rect);
-        this.gravity = 2;
+    drawGameArea(config) {
+        let area = new PIXI.Graphics();
+        area.beginFill(config.backgroundColor, 1);
+        area.drawRect(0, 0, this.screen.width, this.screen.height);
+        return area;
     }
 
     newRandomFigure(ev) {
