@@ -3,7 +3,9 @@ class Game extends PIXI.Application {
     constructor(width, height, config) {
         super(width, height, config);
 
+        // list of figures classes
         this.figureClasses = [Rectangle, Triangle, Circle];
+        // list of figures on the screen
         this.figures = [];
 
         let area = this.drawGameArea(config);

@@ -16,6 +16,8 @@
 <body ng-controller="mainCtrl as vm">
 
     <div class="container">
+        <div class="figure-counter">Figures: {{vm.figuresCount}}</div>
+        <div class="square-counter">Square: {{vm.squareCount}}</div>
         <div id="game"></div>
         <div class="speed">
             <i class="fa fa-minus" aria-hidden="true" ng-click="vm.changeSpeed(-1)"></i>

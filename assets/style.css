@@ -26,13 +26,19 @@
     border-radius: 5px;
     display: inline-block;
 }
-.speed-counter, .gravity-counter {
+.speed-counter,
+.gravity-counter,
+.figure-counter,
+.square-counter{
     display: inline-block;
     border: 1px solid gray;
     border-radius: 5px;
     text-align: center;
     width: 30px;
     padding: 5px;
+}
+.figure-counter, .square-counter {
+    width: auto;
 }
 i {
     text-align: center;

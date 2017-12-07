@@ -36,6 +36,7 @@ gulp.task('js', () => {
         'src/figures/main.js',
         'src/figures/*.js',
         'src/app.js',
+        'src/controller.js',
     ];
 
     gulp.src(src)
