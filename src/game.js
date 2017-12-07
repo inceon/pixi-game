@@ -49,20 +49,17 @@ class Game extends PIXI.Application {
      * @param figureClass - deleted figure instance
      */
     redrawSameFigures(figureClass) {
-        let index;
-        for(let i = 0; i < this.figures.length; i++){
-            let figure = this.figures[i];
-
-            if (Object.is(figure, figureClass)) {
-                index = i;
-            } else if ( figure instanceof figureClass.constructor) {
+        this.figures = this.figures.filter(function (figure) {
+            return !Object.is(figure, figureClass);
+        });
+        for(let figure of this.figures) {
+            if ( figure instanceof figureClass.constructor) {
                 if ( figure.model.graphicsData ) {
                     figure.model.clear();
                     figure.drawFigure(figure.x, figure.y, getRandomColor());
                 }
             }
         }
-        this.figures.splice(index, 1);
     }
 
 }

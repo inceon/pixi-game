@@ -30,6 +30,8 @@ class Figure {
     click(event) {
         if (event) {
             Engine.game.redrawSameFigures(this);
+        } else {
+            Engine.game.figures = Engine.game.figures.filter(figure => !Object.is(figure, this));
         }
         this.ticker.destroy();
         this.model.clear();
