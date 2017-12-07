@@ -1,6 +1,6 @@
 class Triangle extends Figure{
-    constructor(x, y, fill = 0x990099) {
-        super();
+    constructor(x, y, fillColor = 0x990099) {
+        super(x, y);
         this.a = {
             x: x - 40,
             y: y - 40
@@ -14,7 +14,8 @@ class Triangle extends Figure{
             y: y - 40
         };
 
-        this.drawFigure(x, y, fill);
+        this.model = new PIXI.Graphics();
+        this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
         this.model.on('pointerdown', this.click.bind(this));
@@ -22,9 +23,8 @@ class Triangle extends Figure{
         this.ticker.start();
     }
 
-    drawFigure(x, y, fill) {
-        this.model = new PIXI.Graphics();
-        this.model.beginFill(fill, 1);
+    drawFigure(x, y, fillColor) {
+        this.model.beginFill(fillColor, 1);
 
         this.model.moveTo(this.a.x, this.a.y);
         this.model.lineTo(this.b.x, this.b.y);

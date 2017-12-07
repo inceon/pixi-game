@@ -3,9 +3,11 @@
  * Contain three main functions
  */
 class Figure {
-    constructor(){
+    constructor(x, y){
         this.ticker = new PIXI.ticker.Ticker();
         this.ticker.add(this.applyGravity.bind(this));
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -26,6 +28,7 @@ class Figure {
     drawFigure(x, y, fill) {}
 
     click(event) {
+        Engine.game.redrawSameFigures(this);
         this.ticker.destroy();
         this.model.destroy();
     }

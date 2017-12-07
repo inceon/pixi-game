@@ -1,9 +1,10 @@
 class Circle extends Figure{
-    constructor(x, y, fill = 0x990099) {
-        super();
+    constructor(x, y, fillColor = 0x990099) {
+        super(x, y);
         this.radius = getRandomInt(30, 60);
 
-        this.drawFigure(x, y, fill);
+        this.model = new PIXI.Graphics();
+        this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
         this.model.on('pointerdown', this.click.bind(this));
@@ -11,9 +12,8 @@ class Circle extends Figure{
         this.ticker.start();
     }
 
-    drawFigure(x, y, fill){
-        this.model = new PIXI.Graphics();
-        this.model.beginFill(fill, 1);
+    drawFigure(x, y, fillColor){
+        this.model.beginFill(fillColor, 1);
         this.model.drawCircle(x, y, this.radius);
         this.model.endFill();
     }

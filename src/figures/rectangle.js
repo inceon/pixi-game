@@ -1,10 +1,11 @@
 class Rectangle extends Figure {
-    constructor(x, y, fill = 0x990099) {
-        super();
+    constructor(x, y, fillColor = 0x990099) {
+        super(x, y);
         this.width = getRandomInt(50, 80);
         this.height = getRandomInt(50, 80);
 
-        this.drawFigure(x, y, fill);
+        this.model = new PIXI.Graphics();
+        this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
         this.model.on('pointerdown', this.click.bind(this));
@@ -12,10 +13,9 @@ class Rectangle extends Figure {
         this.ticker.start();
     }
 
-    drawFigure(x, y, fill){
-        this.model = new PIXI.Graphics();
+    drawFigure(x, y, fillColor){
 
-        this.model.beginFill(fill, 1);
+        this.model.beginFill(fillColor, 1);
         this.model.drawRect(x - 25, y - 25, this.width, this.height);
         this.model.endFill();
     }
