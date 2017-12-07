@@ -19,7 +19,7 @@ class Figure {
             this.model.position.y += Engine.gravity;
 
             // If the figure outside the game area removes it
-            if (this.model.position.y > Engine.game.screen.height + 50) {
+            if (this.model.position.y > Engine.game.screen.height + 100) {
                 this.click();
             }
         }
@@ -32,6 +32,7 @@ class Figure {
             Engine.game.redrawSameFigures(this);
         }
         this.ticker.destroy();
+        this.model.clear();
         this.model.destroy();
     }
 
