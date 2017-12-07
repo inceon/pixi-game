@@ -73,3 +73,4 @@ gulp.task('watch', () => {
 });
 
 gulp.task('default', ['js', 'html', 'content', 'connect', 'watch']);
+gulp.task('build', ['js', 'html', 'content']);
