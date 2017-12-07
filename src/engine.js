@@ -5,6 +5,6 @@ var Engine = {
         resolution: 1,
         backgroundColor: 0x000022
     },
-    gravity: 0.1,
-    speed: 1
+    gravity: 1.5,
+    speed: 2
 };

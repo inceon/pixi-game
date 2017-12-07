@@ -9,8 +9,20 @@ class Game extends PIXI.Application {
         let area = this.drawGameArea(config);
         this.stage.interactive = true;
         // Click eveng on game area
-        this.stage.click = this.newRandomFigure.bind(this);
+        this.stage.click = (ev) => {
+            this.newRandomFigure(ev.data.global);
+        };
         this.stage.addChild(area);
+
+        this.generateInterval = setInterval(() => {
+            for(let i = 0; i < Engine.speed; i++) {
+                this.newRandomFigure({
+                    x: getRandomInt(30, this.screen.width - 30),
+                    y: 0
+                });
+            }
+        }, 1000);
+        this.ticker.start();
     }
 
     drawGameArea(config) {
@@ -21,24 +33,26 @@ class Game extends PIXI.Application {
     }
 
     // Event handler for click on game area
-    newRandomFigure(ev) {
+    newRandomFigure(data) {
         let randomFigure = choice(this.figureClasses);
-        let figure = new randomFigure(ev.data.global.x, ev.data.global.y, getRandomColor());
+        let figure = new randomFigure(data.x, data.y, getRandomColor());
         figure.gravity = this.gravity;
 
         this.stage.addChild(figure.model);
         this.figures.push(figure);
-
-        console.log(figure.model);
     }
 
+    /**
+     * Function for redrawing same figures
+     * @param figureClass - deleted figure instance
+     */
     redrawSameFigures(figureClass) {
         this.figures = this.figures.filter(function (figure) {
             return !Object.is(figure, figureClass);
         });
         for(let figure of this.figures) {
             if ( figure instanceof figureClass.constructor) {
-                figure.drawFigure(figure.x, figure.y, getRandomColor());
+                figure.model.fillColor = getRandomColor();
             }
         }
     }
