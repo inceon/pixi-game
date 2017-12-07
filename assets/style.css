@@ -1,6 +1,13 @@
 * {
     padding: 0;
     margin: 0;
+    -webkit-user-select: none;
+    /* user-select -- это нестандартное свойство */
+
+    -moz-user-select: none;
+    /* поэтому нужны префиксы */
+
+    -ms-user-select: none;
 }
 
 .container {
@@ -18,6 +25,14 @@
     border: 1px solid gray;
     border-radius: 5px;
     display: inline-block;
+}
+.speed-counter, .gravity-counter {
+    display: inline-block;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    width: 30px;
+    padding: 5px;
 }
 i {
     text-align: center;

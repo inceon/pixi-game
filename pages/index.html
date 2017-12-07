@@ -18,13 +18,15 @@
     <div class="container">
         <div id="game"></div>
         <div class="speed">
-            <i class="fa fa-minus" aria-hidden="true"></i>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-minus" aria-hidden="true" ng-click="vm.changeSpeed(-1)"></i>
+            <i class="fa fa-plus" aria-hidden="true" ng-click="vm.changeSpeed(1)"></i>
         </div>
+        <span class="speed-counter">{{vm.speed}}</span>
         <div class="gravity">
-            <i class="fa fa-minus" aria-hidden="true"></i>
-            <i class="fa fa-plus" aria-hidden="true"></i>
+            <i class="fa fa-minus" aria-hidden="true" ng-click="vm.changeGravity(-0.25)"></i>
+            <i class="fa fa-plus" aria-hidden="true" ng-click="vm.changeGravity(0.25)"></i>
         </div>
+        <span class="gravity-counter">{{vm.gravity}}</span>
     </div>
 
     <script src="app.js"></script>
