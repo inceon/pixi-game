@@ -8,7 +8,7 @@ class Rectangle extends Figure {
         this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
-        this.model.on('pointerdown', this.click.bind(this));
+        this.model.pointerdown = this.click.bind(this);
 
         this.ticker.start();
     }
