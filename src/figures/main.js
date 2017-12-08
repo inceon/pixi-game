@@ -25,9 +25,16 @@ class Figure {
         }
     }
 
+    /**
+     *
+     * @param {int} x - x position
+     * @param {int} y - y position
+     * @param {int} fill - fill color
+     */
     drawFigure(x, y, fill) {}
 
     click(event) {
+        // check if this event
         if (event) {
             Engine.game.redrawSameFigures(this);
         } else {

@@ -8,14 +8,16 @@ class Game extends PIXI.Application {
         // list of figures on the screen
         this.figures = [];
 
-        let area = this.drawGameArea(config);
         this.stage.interactive = true;
         // Click eveng on game area
         this.stage.click = (ev) => {
             this.newRandomFigure(ev.data.global);
         };
+
+        let area = this.drawGameArea(config);
         this.stage.addChild(area);
 
+        // interval for random generating figures
         this.generateInterval = setInterval(() => {
             for(let i = 0; i < Engine.speed; i++) {
                 this.newRandomFigure({
@@ -24,21 +26,28 @@ class Game extends PIXI.Application {
                 });
             }
         }, 1000);
-        this.ticker.start();
     }
 
+    /**
+     * function for drawing rectangular area
+     * @param {object} config
+     * @param {integer} config.backgroundColor - game background color
+     */
     drawGameArea(config) {
         let area = new PIXI.Graphics();
-        area.beginFill(config.backgroundColor, 1);
-        area.drawRect(0, 0, this.screen.width, this.screen.height);
+            area.beginFill(config.backgroundColor, 1);
+            area.drawRect(0, 0, this.screen.width, this.screen.height);
         return area;
     }
 
-    // Event handler for click on game area
+    /**
+     * Event handler for click on game area
+     * Generate new random figure
+     */
     newRandomFigure(data) {
         let randomFigure = choice(this.figureClasses);
         let figure = new randomFigure(data.x, data.y, getRandomColor());
-        figure.gravity = this.gravity;
+            figure.gravity = this.gravity;
 
         this.stage.addChild(figure.model);
         this.figures.push(figure);

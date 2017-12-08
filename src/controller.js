@@ -1,3 +1,6 @@
+/**
+ * Main site controller
+ */
 angular
     .module('game',[])
     .value('Engine', Engine)
@@ -6,6 +9,8 @@ angular
 
         vm.gravity = Engine.gravity;
         vm.speed = Engine.speed;
+
+        // Updating top counters
         $interval(() => {
             vm.figuresCount = Engine.game.figures.length;
             if (vm.figuresCount) {
@@ -23,11 +28,19 @@ angular
         vm.changeSpeed = changeSpeed;
         vm.changeGravity = changeGravity;
 
+        /**
+         * function for changing random generator speed
+         * @param {integer} value
+         */
         function changeSpeed(value) {
             vm.speed += value;
             Engine.speed += value;
         }
 
+        /**
+         * function for changing gravity value
+         * @param {float} value
+         */
         function changeGravity(value) {
             vm.gravity += value;
             Engine.gravity += value;
