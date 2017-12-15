@@ -34,11 +34,9 @@
     border: 1px solid gray;
     border-radius: 5px;
     text-align: center;
-    width: 30px;
-    padding: 5px;
-}
-.figure-counter, .square-counter {
+    min-width: 150px;
     width: auto;
+    padding: 5px;
 }
 i {
     text-align: center;

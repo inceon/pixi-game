@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="game">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,24 +11,23 @@
     <link rel="stylesheet" href="assets/style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.2/pixi.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 </head>
-<body ng-controller="mainCtrl as vm">
+<body>
 
     <div class="container">
-        <div class="figure-counter">Figures: {{vm.figuresCount}}</div>
-        <div class="square-counter">Square: {{vm.squareCount}}</div>
+        <div class="figure-counter">Figures: <span id="figures_count">0</span></div>
+        <div class="square-counter">Square: <span id="square_count">0</span></div>
         <div id="game"></div>
         <div class="speed">
             <i class="fa fa-minus" aria-hidden="true" ng-click="vm.changeSpeed(-1)"></i>
             <i class="fa fa-plus" aria-hidden="true" ng-click="vm.changeSpeed(1)"></i>
         </div>
-        <span class="speed-counter">{{vm.speed}}</span>
+        <span class="speed-counter">Speed: <span id="speed_value">0</span></span>
         <div class="gravity">
             <i class="fa fa-minus" aria-hidden="true" ng-click="vm.changeGravity(-0.25)"></i>
             <i class="fa fa-plus" aria-hidden="true" ng-click="vm.changeGravity(0.25)"></i>
         </div>
-        <span class="gravity-counter">{{vm.gravity}}</span>
+        <span class="gravity-counter">Gravity: <span id="gravity_value">0</span></span>
     </div>
 
     <script src="app.js"></script>
