@@ -1,5 +1,7 @@
 class Triangle {
     constructor(x, y, fillColor = 0x990099) {
+        this.x = x;
+        this.y = y;
         this.a = {
             x: x - 40,
             y: y - 40
@@ -14,6 +16,7 @@ class Triangle {
         };
 
         this.model = new PIXI.Graphics();
+        this.model.boundsPadding = 0;
         this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
