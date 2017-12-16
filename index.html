@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pixi.js</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.6.2/pixi.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="figure-counter">Figures: <span id="figures_count">0</span></div>
+        <div class="square-counter">Square: <span id="square_count">0</span></div>
+
+        <div id="game"></div>
+
+        <div class="speed">
+            <i class="fa fa-minus" aria-hidden="true" id="decrease_speed"></i>
+            <i class="fa fa-plus" aria-hidden="true" id="increase_speed"></i>
+        </div>
+        <span class="speed-counter">Speed: <span id="speed_value">0</span></span>
+        <div class="gravity">
+            <i class="fa fa-minus" aria-hidden="true" id="decrease_gravity"></i>
+            <i class="fa fa-plus" aria-hidden="true" id="increase_gravity"></i>
+        </div>
+        <span class="gravity-counter">Gravity: <span id="gravity_value">0</span></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
