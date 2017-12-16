@@ -1,8 +1,6 @@
-let gameElement = document.getElementById('game');
 
-Engine.game = new Game(
-    gameElement.offsetWidth, gameElement.offsetHeight, Engine.config
-);
+let gameModel = new gameModel();
+let gameView = new gameView(gameModel);
+let gameController = new gameController(gameModel, gameView);
 
-gameElement.appendChild(Engine.game.view);
 

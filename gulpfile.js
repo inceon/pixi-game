@@ -33,10 +33,12 @@ gulp.task('js', () => {
         'src/helpers.js',
         'src/engine.js',
         'src/game.js',
+        'src/view.js',
+        'src/model.js',
+        'src/controller.js',
         'src/figures/main.js',
         'src/figures/*.js',
-        'src/app.js',
-        'src/controller.js',
+        'src/app.js'
     ];
 
     gulp.src(src)

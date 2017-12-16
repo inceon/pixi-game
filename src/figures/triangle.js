@@ -1,6 +1,5 @@
-class Triangle extends Figure{
+class Triangle {
     constructor(x, y, fillColor = 0x990099) {
-        super(x, y);
         this.a = {
             x: x - 40,
             y: y - 40
@@ -18,9 +17,7 @@ class Triangle extends Figure{
         this.drawFigure(x, y, fillColor);
         this.model.interactive = true;
         this.model.buttonMode = true;
-        this.model.on('pointerdown', this.click.bind(this));
 
-        this.ticker.start();
     }
 
     drawFigure(x, y, fillColor) {
@@ -40,6 +37,13 @@ class Triangle extends Figure{
             (this.b.x * (this.c.y - this.a.y)) +
             (this.c.x * (this.a.y - this.b.y))
         ) / 2);
+    }
+
+    destroyFigure() {
+        if (this.stage) {
+            this.stage.removeChild(this);
+        }
+        this.model.destroy();
     }
 
 }

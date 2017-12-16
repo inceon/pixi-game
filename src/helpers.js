@@ -15,7 +15,7 @@ function getRandomInt(min, max) {
  * @returns {int}
  */
 function getRandomColor() {
-    return getRandomInt(1, 16777215);
+    return getRandomInt(1, 0xffffff);
 }
 
 /**
