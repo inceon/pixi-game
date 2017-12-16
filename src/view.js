@@ -34,10 +34,10 @@ class gameView {
     }
 
     update() {
-        var gravity = this._model.gravity;
-        var speed   = this._model.speed;
-        var items   = this._model.items;
-        var surface = this._model.surfaceArea;
+        let gravity = this._model.gravity;
+        let speed   = this._model.speed;
+        let items   = this._model.items;
+        let surface = this._model.surfaceArea;
 
         // Apply gravity to figures
         items.forEach((item) => {
@@ -48,7 +48,7 @@ class gameView {
         this.gravityValueEl.innerHTML          = "" + gravity.y;
         this.speedValueEl.innerHTML            = "" + speed;
         this.currentFigureCounterEl.innerHTML  = "" + items.length;
-        this.surfaceAreaEl.innerHTML           = "" + surface;
+        this.surfaceAreaEl.innerHTML           = "" + surface.toFixed(2);
 
         this.renderer.render(this.stage);
     }

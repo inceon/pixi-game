@@ -39,7 +39,7 @@ class gameController {
     newRandomFigure(data) {
         let randomFigure = choice(this._model.figureClasses);
         let figure = new randomFigure(data.x, data.y, getRandomColor());
-        figure.model.on('pointerdown', (ev) => {
+        figure.model.on('pointerdown', () => {
             this._model.removeItem(figure);
             this.redrawSameFigures(figure);
             figure.destroyFigure();
@@ -54,7 +54,7 @@ class gameController {
      * @param figure - figure instance
      */
     redrawSameFigures(figure) {
-        var items = this._model.items;
+        let items = this._model.items;
         for (let item of items) {
             if (item instanceof figure.constructor) {
                 item.model.clear();
@@ -69,7 +69,7 @@ class gameController {
     makeGenerateFigureInterval() {
         this.generateInterval = setInterval(() => {
             // Generate N figures
-            for (var i = 0; i < this._model.speed; i++) {
+            for (let i = 0; i < this._model.speed; i++) {
                 this.newRandomFigure({
                     x: getRandomInt(30, this._view.width - 30),
                     y: -50
@@ -84,7 +84,7 @@ class gameController {
      * Delete a figure if it is outside the screen
      */
     update() {
-        var items = this._model.items;
+        let items = this._model.items;
         items.forEach((item) => {
             if (item.model.y > this._view.height + item.model.height) {
                 this._model.removeItem(item);

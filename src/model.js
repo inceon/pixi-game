@@ -25,7 +25,7 @@ class gameModel {
      * @param item - figure instance
      */
     removeItem(item) {
-        var index = this._items.indexOf(item);
+        let index = this._items.indexOf(item);
         this.updateSurfaceArea(-item.area);
         this._items.splice(index, 1);
     }
@@ -47,7 +47,7 @@ class gameModel {
     }
 
     decreaseSpeed() {
-        if (this._speed == 0) {
+        if (this._speed === 0) {
             return;
         }
         this._speed -= this._step;
@@ -58,7 +58,7 @@ class gameModel {
     }
 
     decreaseGravityY() {
-        if (this._gravity.y == 0) {
+        if (this._gravity.y === 0) {
             return;
         }
         this._gravity.y -= this._step;
@@ -89,7 +89,7 @@ class gameModel {
 
     /**
      * Update total surface area
-     * @param {integer} value
+     * @param {int} value
      */
     updateSurfaceArea(value) {
         this._surfaceArea += value;

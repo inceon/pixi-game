@@ -21,6 +21,7 @@ function getRandomColor() {
 /**
  * Chice one random item from array
  * @param {array} array
+ * @param {int} array.length
  * @returns {*}
  */
 function choice(array) {
